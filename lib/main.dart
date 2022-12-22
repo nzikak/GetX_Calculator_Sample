@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'controllers/calc_controller.dart';
-import 'dart:developer' as dev;
 
 typedef OnTap = void Function();
 
@@ -160,7 +159,6 @@ class Home extends StatelessWidget {
   Widget _calcWidget() {
     return GetBuilder<CalculationController>(
       builder: (calcController) {
-        dev.log("Builder called");
         return Center(
           child: Text(
             "${calcController.numOne} ${calcController.currentSign} ${calcController.numTwo} = ${calcController.result}",
