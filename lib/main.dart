@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_calc_example/init_controllers.dart';
 import 'controllers/calc_controller.dart';
 
 typedef OnTap = void Function();
 
 void main() {
   runApp(
-    const MaterialApp(
+    GetMaterialApp(
       title: "GetX Example",
-      home: Home(),
+      initialBinding: InitControllers(),
+      home: const Home(),
       debugShowCheckedModeBanner: false,
     ),
   );
@@ -19,8 +21,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Creates and injects the controller
-    final controller = Get.put(CalculationController());
+    //Retrieves the controller
+    final controller = Get.find<CalculationController>();
     return Scaffold(
         appBar: AppBar(
           title: const Text("GetX Example"),
