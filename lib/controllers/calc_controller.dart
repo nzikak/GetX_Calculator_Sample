@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class CalculationController extends GetxController {
+class CalculationController extends GetxController implements GetxService {
   String _currentSign = "+";
 
   String get currentSign => _currentSign;
