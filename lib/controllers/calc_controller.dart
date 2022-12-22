@@ -1,73 +1,61 @@
 import 'package:get/get.dart';
 
 class CalculationController extends GetxController {
-  String _currentSign = "+";
-
-  String get currentSign => _currentSign;
+  //Current operator
+  final RxString _currentSign = "+".obs;
+  RxString get currentSign => _currentSign;
 
   //First operand
-  int _numOne = 0;
-
-  int get numOne => _numOne;
+  final RxInt _numOne = 0.obs;
+  RxInt get numOne => _numOne;
 
   //Second operand
-  int _numTwo = 0;
-
-  int get numTwo => _numTwo;
+  final RxInt _numTwo = 0.obs;
+  RxInt get numTwo => _numTwo;
 
   //Result of the operation
-  int _result = 0;
-
-  int get result => _result;
+  final RxInt _result = 0.obs;
+  RxInt get result => _result;
 
   void increaseNumOne() {
-    _numOne++;
-    update();
+    _numOne.value++;
   }
 
   void increaseNumTwo() {
-    _numTwo++;
-    update();
+    _numTwo.value++;
   }
 
   void decreaseNumOne() {
-    _numOne--;
-    update();
+    _numOne.value--;
   }
 
   void decreaseNumTwo() {
-    _numTwo--;
-    update();
+    _numTwo.value--;
   }
 
   void add() {
-    _currentSign = "+";
-    _result = _numOne + _numTwo;
-    update();
+    _currentSign.value = "+";
+    _result.value = _numOne.value + _numTwo.value;
   }
 
   void subtract() {
-    _currentSign = "-";
-    _result = _numOne - _numTwo;
-    update();
+    _currentSign.value = "-";
+    _result.value = _numOne.value - _numTwo.value;
   }
 
   void multiply() {
-    _currentSign = "x";
-    _result = _numOne * _numTwo;
-    update();
+    _currentSign.value = "x";
+    _result.value = _numOne.value * _numTwo.value;
   }
 
   void divide() {
-    _currentSign = "/";
-    _result = _numOne ~/ _numTwo;
-    update();
+    _currentSign.value = "/";
+    _result.value = _numOne.value ~/ _numTwo.value;
   }
 
   void reset() {
-    _numOne = 0;
-    _numTwo = 0;
-    _result = 0;
-    update();
+    _numOne.value = 0;
+    _numTwo.value = 0;
+    _result.value = 0;
   }
 }
